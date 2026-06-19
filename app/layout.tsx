@@ -11,12 +11,13 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ersaptaaristo.dev"),
-  title: "Ersapta Aristo — AI Integration Engineer",
+  title: "Ersapta Aristo, Full-Stack Developer",
   description:
-    "AI Integration Engineer. I ship production AI into real products: RAG, agents, vision, and automation, built on Next.js, Supabase, and the LLM stack.",
+    "Full-stack developer who helps entrepreneurs turn ideas into real products and new businesses. AI and Web3 in the toolkit, built on Next.js, Supabase, and the modern web.",
   openGraph: {
-    title: "Ersapta Aristo — AI Integration Engineer",
-    description: "I ship production AI into real products.",
+    title: "Ersapta Aristo, Full-Stack Developer",
+    description:
+      "I help entrepreneurs turn ideas into real products and new businesses.",
     url: "https://ersaptaaristo.dev",
     type: "website",
   },

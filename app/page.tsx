@@ -50,17 +50,17 @@ export default function Home() {
         <div className="order-2 md:order-1">
           <div className="eyebrow flex items-center gap-2 rise rise-1">
             <span className="h-1 w-1 rounded-full bg-accent" />
-            AI Integration Engineer
+            Full-Stack Developer
           </div>
           <h1 className="rise rise-2 mt-6 text-[clamp(46px,9vw,92px)] font-semibold leading-[0.95] tracking-[-0.03em]">
             Ersapta
             <br />
             Aristo
           </h1>
-          <p className="rise rise-3 mt-7 max-w-[46ch] text-[17px] leading-relaxed text-ink-2">
-            I build production AI into real products. RAG, agents, vision, and
-            automation, wired into things people actually use, on Next.js and
-            Supabase.
+          <p className="rise rise-3 mt-7 max-w-[48ch] text-[17px] leading-relaxed text-ink-2">
+            I help entrepreneurs turn ideas into real products and new
+            businesses. Full-stack from database to interface, with AI and Web3
+            in my toolkit.
           </p>
           <div className="rise rise-4 mt-9 flex flex-wrap items-center gap-3">
             <a href="#contact" className="btn btn-ghost">
@@ -118,13 +118,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* breadth (polymath in the body, not the headline) */}
+      {/* breadth: full-stack range, builder-for-founders framing */}
       <section className="py-20">
         <div className="eyebrow">How I work</div>
         <p className="mt-6 max-w-[60ch] text-[clamp(20px,2.6vw,27px)] font-medium leading-[1.4] tracking-[-0.01em]">
-          Full-stack, with AI as the multiplier. I go deep across the stack,
-          retrieval, agents, vision, automation, payments, and ship clean, typed
-          code a team can pick up cold. Fast, but I read every diff.
+          Full-stack, end to end. Frontend, backend, data, AI, and Web3, shipped
+          as clean, typed code a team can pick up cold. I build like the business
+          is mine. Fast, but I read every diff.
         </p>
       </section>
 
@@ -136,11 +136,11 @@ export default function Home() {
         <div>
           <div className="eyebrow">Let&apos;s build</div>
           <h2 className="mt-5 max-w-[14ch] text-[clamp(30px,6vw,56px)] font-semibold leading-[1.02] tracking-[-0.02em]">
-            Have something to ship?
+            Have an idea to build?
           </h2>
           <p className="mt-5 max-w-[42ch] text-[15px] leading-relaxed text-ink-2">
-            Tell me what you&apos;re building and where AI fits. I&apos;ll reply
-            with how I&apos;d approach it.
+            Tell me about your idea and where you want to take it. I&apos;ll reply
+            with how I&apos;d build it.
           </p>
           <div className="mt-7 flex flex-wrap gap-5">
             <a
@@ -163,7 +163,7 @@ export default function Home() {
       </section>
 
       <footer className="flex flex-col gap-2 py-8 text-ink-3 sm:flex-row sm:items-center sm:justify-between">
-        <span className="mono text-[12px]">Ersapta Aristo, AI Integration Engineer</span>
+        <span className="mono text-[12px]">Ersapta Aristo, Full-Stack Developer</span>
         <span className="mono text-[12px]">ersaptaaristo.dev</span>
       </footer>
     </main>
