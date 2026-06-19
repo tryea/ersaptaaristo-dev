@@ -1,0 +1,301 @@
+@import "tailwindcss";
+
+@theme {
+  /* black-premium: true-black canvas, warm bone ink, single amber signature */
+  --color-canvas: #0a0a0a;
+  --color-surface-1: #141312;
+  --color-surface-2: #1c1a18;
+  --color-surface-3: #252320;
+  --color-line: #272320;
+  --color-ink: #f1ede4;
+  --color-ink-2: #9a958a;
+  --color-ink-3: #5e5a52;
+  --color-accent: #d4a24e;
+  --color-accent-ink: #0a0a0a;
+  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+:root {
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100dvh;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* mono eyebrow = the engineer signal (purposeful mono, not decorative) */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* primary CTA = the ONLY amber-filled element on a screen */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  padding: 0 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: filter 0.12s ease, transform 0.12s ease, border-color 0.12s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-accent {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+.btn-accent:hover {
+  filter: brightness(1.06);
+}
+.btn-ghost {
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+}
+.btn-ghost:hover {
+  border-color: var(--color-ink-3);
+}
+
+.card {
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+}
+
+/* signature: AI-integration system map (data flowing along connections) */
+.base-line {
+  stroke: var(--color-line);
+  stroke-width: 1.4;
+  fill: none;
+}
+.flow-line {
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-dasharray: 5 150;
+  animation: flow 3.6s linear infinite;
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -155;
+  }
+}
+.node-dot {
+  fill: var(--color-surface-2);
+  stroke: var(--color-accent);
+  stroke-width: 1.4;
+}
+.node-hub {
+  fill: var(--color-surface-1);
+  stroke: var(--color-accent);
+  stroke-width: 1.6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow-line {
+    animation: none;
+    stroke-dasharray: none;
+    opacity: 0.55;
+  }
+}
+
+/* portrait: keep it real (anti-AI feel), subtle grade, fade left edge into the canvas */
+.portrait {
+  filter: contrast(1.05) saturate(0.96);
+}
+.portrait-fade {
+  -webkit-mask-image: linear-gradient(to left, #000 76%, transparent);
+  mask-image: linear-gradient(to left, #000 76%, transparent);
+}
+
+:root {
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* editorial work list (Gustaf-style index rows, not cards) */
+.work-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.6rem 0.25rem;
+  border-top: 1px solid var(--color-line);
+  transition: padding-left 0.5s var(--ease-out-expo), background-color 0.5s ease;
+}
+/* growing accent bar on the left edge: the "felt, not seen" cue */
+.work-row::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  height: calc(100% + 1px);
+  width: 2px;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.work-row:hover {
+  padding-left: 1.15rem;
+  background-color: color-mix(in oklab, var(--color-surface-1) 50%, transparent);
+}
+.work-row:hover::before {
+  transform: scaleY(1);
+}
+.work-idx {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-accent);
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.work-row:hover .work-idx {
+  transform: translateX(3px);
+}
+.work-arrow {
+  display: inline-block;
+  transition: transform 0.5s var(--ease-out-expo);
+}
+.work-row:hover .work-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* nav: underline reveal that wipes in from the left */
+.navlink {
+  position: relative;
+}
+.navlink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+.navlink:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* buttons: subtle lift on hover */
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* hero entrance: restrained fade-up on load */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.rise {
+  opacity: 0;
+  animation: fade-up 0.7s var(--ease-out-expo) forwards;
+}
+.rise-1 {
+  animation-delay: 0.05s;
+}
+.rise-2 {
+  animation-delay: 0.14s;
+}
+.rise-3 {
+  animation-delay: 0.23s;
+}
+.rise-4 {
+  animation-delay: 0.32s;
+}
+.rise-img {
+  opacity: 0;
+  animation: fade-up 0.9s var(--ease-out-expo) 0.1s forwards;
+}
+
+/* contact form fields */
+.field-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-2);
+}
+.field {
+  width: 100%;
+  margin-top: 8px;
+  padding: 13px 14px;
+  background: var(--color-surface-1);
+  border: 1px solid var(--color-line);
+  border-radius: 10px;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.field::placeholder {
+  color: var(--color-ink-3);
+}
+.field:hover {
+  border-color: var(--color-ink-3);
+}
+.field:focus {
+  border-color: var(--color-accent);
+  background: var(--color-surface-2);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-accent) 18%, transparent);
+}
+textarea.field {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+/* respect reduced motion: no entrances, no transition motion */
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .rise-img {
+    opacity: 1;
+    animation: none;
+  }
+  .work-row,
+  .work-row::before,
+  .work-idx,
+  .work-arrow,
+  .navlink::after,
+  .btn {
+    transition: none;
+  }
+}
