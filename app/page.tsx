@@ -134,7 +134,7 @@ export default function Home() {
             className="text-[16px] font-semibold tracking-wide"
             style={{ fontFamily: "var(--font-cinzel), Georgia, serif" }}
           >
-            Ersapta
+            Ersapta Aristo
           </span>
         </span>
         <div className="flex gap-6">
