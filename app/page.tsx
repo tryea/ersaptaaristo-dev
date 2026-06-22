@@ -138,17 +138,16 @@ export default function Home() {
 
       {/* hero: text left, real portrait right (Breedlove layout, Gustaf restraint) */}
       <header className="grid items-center gap-8 pb-10 pt-6 md:grid-cols-[1.05fr_0.95fr] md:gap-6 md:pb-16 md:pt-10">
-        <div className="order-2 md:order-1">
-          <div className="eyebrow flex items-center gap-2 rise rise-1">
-            <span className="h-1 w-1 rounded-full bg-accent" />
-            Full-Stack Developer
-          </div>
-          <h1 className="rise rise-2 mt-6 text-[clamp(46px,9vw,92px)] font-semibold leading-[0.95] tracking-[-0.03em]">
+        <div className="order-1">
+          <h1 className="rise rise-1 text-[clamp(46px,9vw,92px)] font-semibold leading-[0.95] tracking-[-0.03em]">
             Ersapta
             <br />
             Aristo
           </h1>
-          <p className="rise rise-3 mt-7 max-w-[48ch] text-[17px] leading-relaxed text-ink-2">
+          <p className="rise rise-2 mt-4 text-[clamp(19px,2.6vw,24px)] font-medium text-ink">
+            Full-Stack Developer
+          </p>
+          <p className="rise rise-3 mt-5 max-w-[48ch] text-[17px] leading-relaxed text-ink-2">
             I help entrepreneurs turn ideas into real products and new
             businesses. Full-stack from database to interface, with AI and Web3
             in my toolkit.
@@ -157,19 +156,19 @@ export default function Home() {
             <a href="#contact" className="btn btn-ghost">
               Get in touch
             </a>
-            <a href="#work" className="mono text-[13px] text-ink-2 hover:text-accent">
-              Selected work ↓
+            <a href="#work" className="text-[14px] text-ink-2 hover:text-accent">
+              See the work
             </a>
           </div>
         </div>
 
-        <div className="rise-img order-1 md:order-2">
+        <div className="rise-img order-2 mt-4 md:mt-0">
           <div className="portrait-fade overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/portrait.jpg"
               alt="Ersapta Aristo"
-              className="portrait h-[68vh] max-h-[720px] w-full object-cover object-[center_88%] md:h-[82vh]"
+              className="portrait h-[56vh] max-h-[680px] w-full object-cover object-[center_28%] md:h-[82vh] md:object-[center_88%]"
             />
           </div>
         </div>
@@ -177,19 +176,13 @@ export default function Home() {
 
       {/* Portfolio, field 1: AI engineering capability demos */}
       <section id="work" className="pt-10">
-        <div className="flex items-baseline justify-between">
-          <div className="eyebrow">AI Engineering</div>
-          <div className="mono text-[12px] text-ink-3">06 / live demos</div>
-        </div>
+        <div className="eyebrow">AI Engineering</div>
         <WorkList items={AI_WORK} duration={45} />
       </section>
 
       {/* Portfolio, field 2: full-stack app builds */}
       <section className="pt-14">
-        <div className="flex items-baseline justify-between">
-          <div className="eyebrow">Full Stack</div>
-          <div className="mono text-[12px] text-ink-3">04 / live demos</div>
-        </div>
+        <div className="eyebrow">Full Stack</div>
         <WorkList items={WORK} duration={30} />
       </section>
 
