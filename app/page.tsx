@@ -178,7 +178,7 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/portrait.webp"
-              alt="Ersapta Aristo"
+              alt="Ersapta Aristo, full-stack and AI developer, working at his desk"
               className="portrait h-[56vh] max-h-[680px] w-full object-cover object-[center_30%] md:h-[82vh] md:max-h-[760px]"
             />
           </div>
