@@ -1,6 +1,52 @@
 import ContactForm from "@/components/ContactForm";
 
-const WORK = [
+type Project = {
+  name: string;
+  tag: string;
+  blurb: string;
+  href: string;
+};
+
+const AI_WORK: Project[] = [
+  {
+    name: "FinRAG",
+    tag: "RAG",
+    blurb: "Hybrid retrieval over real financial filings. Dense vectors and full-text search fused with reciprocal rank fusion, reranked, then answered with inline citations back to the source page.",
+    href: "https://finrag.ersaptaaristo.dev",
+  },
+  {
+    name: "AgentDesk",
+    tag: "Agents",
+    blurb: "A support agent that investigates with tools, keeps memory across conversations, and pauses for human approval before it issues a refund or sends an email.",
+    href: "https://agentdesk.ersaptaaristo.dev",
+  },
+  {
+    name: "SQLGuard",
+    tag: "Guardrails",
+    blurb: "Plain English to SQL with three independent guardrail layers that block a destructive query before it can ever reach the database.",
+    href: "https://sqlguard.ersaptaaristo.dev",
+  },
+  {
+    name: "SemCache",
+    tag: "LLMOps",
+    blurb: "A semantic cache that reuses a stored answer when a new question means the same thing, cutting model spend and latency to near zero on a hit.",
+    href: "https://semcache.ersaptaaristo.dev",
+  },
+  {
+    name: "EvalForge",
+    tag: "Evals",
+    blurb: "Turns real support logs into a rubric test suite, then scores a model against it with a separate LLM acting as the judge.",
+    href: "https://evalforge.ersaptaaristo.dev",
+  },
+  {
+    name: "LoRALab",
+    tag: "Fine-tuning",
+    blurb: "A real LoRA fine-tune of a small model on a laptop GPU, doubling its labeling accuracy on a held-out test set.",
+    href: "https://loralab.ersaptaaristo.dev",
+  },
+];
+
+const WORK: Project[] = [
   {
     name: "Reform",
     tag: "AI vision",
@@ -26,6 +72,51 @@ const WORK = [
     href: "https://hostly.ersaptaaristo.dev",
   },
 ];
+
+function WorkCard({ w, i }: { w: Project; i: number }) {
+  return (
+    <a
+      href={w.href}
+      target="_blank"
+      rel="noreferrer"
+      className="card group flex w-[270px] shrink-0 flex-col p-5 transition-colors hover:bg-surface-2 sm:w-[300px]"
+    >
+      <div className="flex items-center justify-between">
+        <span className="mono text-[12px] text-accent">
+          {String(i + 1).padStart(2, "0")}
+        </span>
+        <span className="mono text-[11px] text-ink-3">{w.tag}</span>
+      </div>
+      <span className="mt-5 text-[19px] font-semibold tracking-tight text-ink group-hover:text-accent">
+        {w.name}
+      </span>
+      <span className="mt-2 flex-1 text-[13px] leading-relaxed text-ink-2">
+        {w.blurb}
+      </span>
+      <span className="mono mt-5 text-[12px] text-ink-3 group-hover:text-accent">
+        Open <span className="work-arrow">↗</span>
+      </span>
+    </a>
+  );
+}
+
+// Auto-scrolling marquee: the set is rendered twice so the loop is seamless;
+// the track animates continuously and pauses on hover (see globals.css).
+function WorkList({ items, duration }: { items: Project[]; duration: number }) {
+  return (
+    <div className="marquee mt-6">
+      <div className="marquee-track" style={{ animationDuration: `${duration}s` }}>
+        {[0, 1].map((dup) => (
+          <div className="marquee-set" key={dup} aria-hidden={dup === 1}>
+            {items.map((w, i) => (
+              <WorkCard key={`${dup}-${w.name}`} w={w} i={i} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -84,47 +175,31 @@ export default function Home() {
         </div>
       </header>
 
-      {/* work: indexed editorial list (Gustaf), not cards */}
+      {/* Portfolio, field 1: AI engineering capability demos */}
       <section id="work" className="pt-10">
         <div className="flex items-baseline justify-between">
-          <div className="eyebrow">Selected work</div>
-          <div className="mono text-[12px] text-ink-3">04 / shipped, live</div>
+          <div className="eyebrow">AI Engineering</div>
+          <div className="mono text-[12px] text-ink-3">06 / live demos</div>
         </div>
-        <div className="mt-6">
-          {WORK.map((w, i) => (
-            <a
-              key={w.name}
-              href={w.href}
-              target="_blank"
-              rel="noreferrer"
-              className="work-row group"
-            >
-              <span className="work-idx">{String(i + 1).padStart(2, "0")}</span>
-              <span>
-                <span className="text-[20px] font-semibold tracking-tight group-hover:text-accent">
-                  {w.name}
-                </span>
-                <span className="mono ml-3 text-[11px] text-ink-3">{w.tag}</span>
-                <span className="mt-1 block max-w-[60ch] text-[14px] leading-relaxed text-ink-2">
-                  {w.blurb}
-                </span>
-              </span>
-              <span className="mono self-center text-[12px] text-ink-3 group-hover:text-accent">
-                Open <span className="work-arrow">↗</span>
-              </span>
-            </a>
-          ))}
-          <div className="border-t border-line" />
+        <WorkList items={AI_WORK} duration={45} />
+      </section>
+
+      {/* Portfolio, field 2: full-stack app builds */}
+      <section className="pt-14">
+        <div className="flex items-baseline justify-between">
+          <div className="eyebrow">Full Stack</div>
+          <div className="mono text-[12px] text-ink-3">04 / live demos</div>
         </div>
+        <WorkList items={WORK} duration={30} />
       </section>
 
       {/* breadth: full-stack range, builder-for-founders framing */}
       <section className="py-20">
         <div className="eyebrow">How I work</div>
         <p className="mt-6 max-w-[60ch] text-[clamp(20px,2.6vw,27px)] font-medium leading-[1.4] tracking-[-0.01em]">
-          Full-stack, end to end. Frontend, backend, data, AI, and Web3, shipped
-          as clean, typed code a team can pick up cold. I build like the business
-          is mine. Fast, but I read every diff.
+          Full-stack, end to end. Frontend, backend, data, AI, and Web3,
+          delivered as clean, typed code a team can pick up cold. I build like
+          the business is mine. Fast, but I read every diff.
         </p>
       </section>
 
