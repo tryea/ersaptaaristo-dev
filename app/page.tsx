@@ -123,11 +123,19 @@ export default function Home() {
     <main className="mx-auto w-full max-w-[1120px] px-6">
       {/* nav */}
       <nav className="flex items-center justify-between py-6">
-        <span
-          className="text-[16px] font-semibold tracking-wide"
-          style={{ fontFamily: "var(--font-cinzel), Georgia, serif" }}
-        >
-          Ersapta<span className="text-accent">.</span>
+        <span className="flex items-center gap-2.5">
+          <svg viewBox="0 0 100 100" className="h-7 w-7 shrink-0" aria-hidden="true">
+            <path d="M12 88 L50 14 L88 88" fill="none" stroke="#d4a24e" strokeWidth="10" strokeLinejoin="miter" />
+            <rect x="34" y="42" width="31" height="7" fill="#d4a24e" />
+            <rect x="34" y="56.5" width="18" height="7" fill="#d4a24e" />
+            <rect x="34" y="71" width="31" height="7" fill="#d4a24e" />
+          </svg>
+          <span
+            className="text-[16px] font-semibold tracking-wide"
+            style={{ fontFamily: "var(--font-cinzel), Georgia, serif" }}
+          >
+            Ersapta
+          </span>
         </span>
         <div className="flex gap-6">
           <a href="#work" className="navlink eyebrow hover:text-ink">

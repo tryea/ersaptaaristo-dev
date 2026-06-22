@@ -20,6 +20,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ersaptaaristo.dev"),
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png" }],
+  },
   title: "Ersapta Aristo, Full-Stack Developer",
   description:
     "Full-stack developer who helps entrepreneurs turn ideas into real products and new businesses. AI and Web3 in the toolkit, built on Next.js, Supabase, and the modern web.",
