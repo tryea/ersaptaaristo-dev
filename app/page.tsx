@@ -123,7 +123,10 @@ export default function Home() {
     <main className="mx-auto w-full max-w-[1120px] px-6">
       {/* nav */}
       <nav className="flex items-center justify-between py-6">
-        <span className="mono text-[15px] font-semibold tracking-tight">
+        <span
+          className="text-[16px] font-semibold tracking-wide"
+          style={{ fontFamily: "var(--font-cinzel), Georgia, serif" }}
+        >
           Ersapta<span className="text-accent">.</span>
         </span>
         <div className="flex gap-6">
@@ -166,9 +169,9 @@ export default function Home() {
           <div className="portrait-fade overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/portrait.jpg"
+              src="/portrait.webp"
               alt="Ersapta Aristo"
-              className="portrait h-[56vh] max-h-[680px] w-full object-cover object-[center_28%] md:h-[82vh] md:object-[center_88%]"
+              className="portrait h-[56vh] max-h-[680px] w-full object-cover object-[center_30%] md:h-[82vh] md:max-h-[760px]"
             />
           </div>
         </div>

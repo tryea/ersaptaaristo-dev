@@ -8,11 +8,11 @@
   --color-surface-3: #252320;
   --color-line: #272320;
   --color-ink: #f1ede4;
-  --color-ink-2: #9a958a;
-  --color-ink-3: #5e5a52;
+  --color-ink-2: #d0cbbf;
+  --color-ink-3: #9b968b;
   --color-accent: #d4a24e;
   --color-accent-ink: #0a0a0a;
-  --font-sans: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
@@ -43,10 +43,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1,
+h2 {
+  font-family: var(--font-cinzel), Georgia, serif;
+  letter-spacing: 0.01em;
+}
+h1 {
+  color: var(--color-accent);
+}
+
 /* mono eyebrow = the engineer signal (purposeful mono, not decorative) */
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font-family: var(--font-cinzel), Georgia, serif;
+  font-size: 13px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-ink-2);
